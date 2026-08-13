@@ -349,6 +349,28 @@ ul,ol{margin:0;padding:0;list-style:none}
 .grp[data-cat="mind"] .grp__hd{border-bottom-color:rgba(122,104,150,.4)}
 .grp[data-cat="golf"] .grp__hd{border-bottom-color:rgba(96,132,86,.4)}
 
+/* ---------- トップ画 ---------- */
+
+/* 記事のいちばん上に出る大きい画像 */
+.cover{
+  margin:0 0 26px;aspect-ratio:2/1;overflow:hidden;
+  background:var(--navy);border-radius:var(--r-lg);box-shadow:var(--sh);
+}
+.cover img{width:100%;height:100%;object-fit:cover}
+
+/* 目次カードの上に出る小さい画像 */
+.card__img{
+  display:block;margin:-26px -26px 18px;aspect-ratio:2/1;overflow:hidden;
+  background:var(--navy);border-radius:13px 13px 0 0;
+}
+.card__img img{width:100%;height:100%;object-fit:cover;transition:transform .55s var(--ease)}
+.card a:hover .card__img img{transform:scale(1.045)}
+
+@media (max-width:640px){
+  .cover{margin-bottom:20px}
+  .card__img{margin:-22px -20px 16px}
+}
+
 /* ---------- 長い記事のための要素 ---------- */
 
 /* 小見出し（### で書いたもの） */
