@@ -8,6 +8,37 @@
   "use strict";
 
   var KEY = "dlight-members-paid";
+
+  // パスワードは月に1回変わります。
+  // そこで、覚えておくのは「その月の終わりまで」にします。
+  // 月が変わったら忘れて、もう一度お聞きします。
+  function monthEnd() {
+    var d = new Date();
+    return new Date(d.getFullYear(), d.getMonth() + 1, 1, 0, 0, 0, 0).getTime();
+  }
+
+  function remember(pass) {
+    try { localStorage.setItem(KEY, JSON.stringify({ pass: pass, exp: monthEnd() })); } catch (_) {}
+  }
+
+  function forget() {
+    try { localStorage.removeItem(KEY); } catch (_) {}
+  }
+
+  // 覚えているパスワードを取り出す。期限が切れていたら忘れる。
+  function recall() {
+    var raw = null;
+    try { raw = localStorage.getItem(KEY); } catch (_) { return null; }
+    if (!raw) return null;
+    var saved;
+    try { saved = JSON.parse(raw); } catch (_) { saved = null; }
+    if (!saved || typeof saved !== "object" || !saved.pass || !saved.exp) {
+      forget();          // 期限を付ける前に覚えたもの。もう一度お聞きします
+      return null;
+    }
+    if (Date.now() >= saved.exp) { forget(); return null; }
+    return saved.pass;
+  }
   var box = document.getElementById("paid");
   if (!box) return;
 
@@ -75,20 +106,22 @@
     });
   }
 
-  function unlock(pass, remember) {
+  function unlock(pass, keep) {
     return deriveKey(pass).then(function (key) {
       return checkKey(key).then(function (ok) {
         if (!ok) return false;
-        if (remember) { try { localStorage.setItem(KEY, pass); } catch (_) {} }
+        if (keep) remember(pass);
         return decrypt(key).then(function (html) { open(html); return true; });
       });
     });
   }
 
-  // 保存済みの合言葉があれば、聞かずに開く
-  var saved = null;
-  try { saved = localStorage.getItem(KEY); } catch (_) {}
-  if (saved) unlock(saved, false);
+  // 覚えているパスワードがあれば、聞かずに開く。
+  // パスワードが変わっていて開けないときは、忘れて、入力欄を出します。
+  var saved = recall();
+  if (saved) {
+    unlock(saved, false).then(function (ok) { if (!ok) forget(); });
+  }
 
   var form = document.getElementById("paid-form");
   var input = document.getElementById("paid-input");

@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/members.css">
-<script src="assets/js/app.js" defer></script>
+<link rel="stylesheet" href="assets/css/members.css?v=868dd61f">
+<script src="assets/js/app.js?v=868dd61f" defer></script>
 </head>
 <body>
 <header class="hd">
@@ -32,8 +32,9 @@
     <h2 class="howto__t">このページの使い方</h2>
     <p class="howto__l">お悩み別に並べています。よく聞かれることから、お伝えしておきたいことまで書いています。
       気になる言葉で探すこともできます。</p>
-    <p class="howto__rec">まずは1分ほどで読める無料の記事を読んでいただき、
-      興味がある内容だけ、有料の詳しい版を読んでいただけるといいと思います。</p>
+    <p class="howto__rec">まずは1分ほどで読める無料版を読んでいただき、
+      興味がある内容だけ有料版を読んでみてください。
+      <span class="howto__note">＊無料版を最後まで読んでいただけると、関連記事へ飛ぶボタンがあります</span></p>
     <div class="howto__g">
       <div class="howto__c">
         <p class="howto__k">記事</p>
@@ -61,7 +62,115 @@
   </div>
 
   <p class="hits" id="hits" hidden></p>
-  <ul class="cards" id="grid"><li class='grp__hd' data-cat='food'><h2>食事</h2><p>外食・体重・食べ方</p></li><li class="card" data-cat="food" data-cats="food" data-slug="teitaiki"
+  <ul class="cards" id="grid"><li class='grp__hd grp__hd--new' data-cat='new'><h2>新着</h2><p>あたらしく増えた記事</p></li><li class="card" data-cat="sleep" data-cats="sleep" data-slug="nemurenai-yoru"
+        data-paid="0" data-dup='1' data-q="眠れない夜に、ベッドで粘らない 眠れないままベッドにいると、ベッドが眠れない場所になります 眠れない 寝られない ベッド 布団 粘る 焦る 不眠 ねむれない ふとん あせる ふみん 寝ようとすると眠れない">
+      <a href="nemurenai-yoru.html">
+        <span class="card__img"><img src='img/nemurenai-yoru.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span></span>
+        <h3 class="card__t">眠れない夜に、ベッドで粘らない</h3>
+        <p class="card__l">眠れないままベッドにいると、ベッドが眠れない場所になります</p>
+        <span class="card__go">読む</span>
+      </a>
+    </li><li class="card" data-cat="sleep" data-cats="sleep posture" data-slug="ibiki"
+        data-paid="0" data-dup='1' data-q="いびき・口呼吸 いびきは、空気の通り道が狭くなっているサインです いびき 口呼吸 気道 無呼吸 横向き 鼻づまり 喉が乾く いびきをかく こうこきゅう きどう むこきゅう 寝てる時 口が開く">
+      <a href="ibiki.html">
+        <span class="card__img"><img src='img/ibiki.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--posture'>姿勢・不調</span></span>
+        <h3 class="card__t">いびき・口呼吸</h3>
+        <p class="card__l">いびきは、空気の通り道が狭くなっているサインです</p>
+        <span class="card__go">読む</span>
+      </a>
+    </li><li class="card" data-cat="sleep" data-cats="sleep food" data-slug="suiminbusoku-shokuyoku"
+        data-paid="0" data-dup='1' data-q="寝不足の日は食欲が増える 寝不足の日に食べすぎるのは、意志の問題ではありません 寝不足 食欲 グレリン レプチン 甘いもの 我慢できない ダイエット ねぶそく しょくよく あまいもの がまん 睡眠不足">
+      <a href="suiminbusoku-shokuyoku.html">
+        <span class="card__img"><img src='img/suiminbusoku-shokuyoku.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--food'>食事</span></span>
+        <h3 class="card__t">寝不足の日は食欲が増える</h3>
+        <p class="card__l">寝不足の日に食べすぎるのは、意志の問題ではありません</p>
+        <span class="card__go">読む</span>
+      </a>
+    </li><li class="card" data-cat="sleep" data-cats="sleep training" data-slug="undo-timing"
+        data-paid="0" data-dup='1' data-q="運動のタイミングと睡眠 運動は眠りを深くします。ただし直前は逆です 運動 タイミング 夜 トレーニング 睡眠 深くなる 興奮 うんどう たいみんぐ よる すいみん 夜トレ 寝る前の運動">
+      <a href="undo-timing.html">
+        <span class="card__img"><img src='img/undo-timing.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--training'>運動</span></span>
+        <h3 class="card__t">運動のタイミングと睡眠</h3>
+        <p class="card__l">運動は眠りを深くします。ただし直前は逆です</p>
+        <span class="card__go">読む</span>
+      </a>
+    </li><li class="card" data-cat="sleep" data-cats="sleep" data-slug="asahi"
+        data-paid="0" data-dup='1' data-q="朝の光を浴びる 夜の眠りは、朝の光で決まります 朝の光 日光 体内時計 メラトニン カーテン 起床 リセット あさのひかり にっこう たいないどけい めざめ 朝日">
+      <a href="asahi.html">
+        <span class="card__img"><img src='img/asahi.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span></span>
+        <h3 class="card__t">朝の光を浴びる</h3>
+        <p class="card__l">夜の眠りは、朝の光で決まります</p>
+        <span class="card__go">読む</span>
+      </a>
+    </li><li class="card" data-cat="sleep" data-cats="sleep food" data-slug="nemae-shokuji"
+        data-paid="0" data-dup='1' data-q="寝る前の食事 寝る直前の食事は、体が休む時間を削ります 寝る前 食事 夜遅い 消化 空腹 夜食 帰りが遅い ねるまえ しょくじ よるおそい しょうか くうふく やしょく">
+      <a href="nemae-shokuji.html">
+        <span class="card__img"><img src='img/nemae-shokuji.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--food'>食事</span></span>
+        <h3 class="card__t">寝る前の食事</h3>
+        <p class="card__l">寝る直前の食事は、体が休む時間を削ります</p>
+        <span class="card__go">読む</span>
+      </a>
+    </li><li class="card card--paid" data-cat="sleep" data-cats="sleep" data-slug="nemurenai-yoru-shikumi"
+        data-paid="1" data-dup='1' data-q="眠れない夜にベッドで粘ってはいけない理由 体は「場所」と「状態」を結びつけて覚えます。眠れないまま横になる時間を減らし、ベッドと眠りの結びつきを取り戻します 眠れない 不眠 寝つけない ベッド 布団 20分 一度出る 条件づけ 結びつき 考えごと 不安 焦り 認知行動療法 不眠症 刺激制御 起きる時刻 昼寝 時計 ねむれない ふみん ねつけない べっど ふとん じょうけんづけ かんがえごと ふあん にんちこうどうりょうほう ふみんしょう">
+      <a href="nemurenai-yoru-shikumi.html">
+        <span class="card__img"><img src='img/nemurenai-yoru-shikumi.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--paid'>有料</span></span>
+        <h3 class="card__t">眠れない夜にベッドで粘ってはいけない理由</h3>
+        <p class="card__l">体は「場所」と「状態」を結びつけて覚えます。眠れないまま横になる時間を減らし、ベッドと眠りの結びつきを取り戻します</p>
+        <span class="card__go">続きを読む</span>
+      </a>
+    </li><li class="card card--paid" data-cat="sleep" data-cats="sleep posture" data-slug="ibiki-shikumi"
+        data-paid="1" data-dup='1' data-q="いびきはなぜ起きるのか いびきは、骨で支えられていないのどの通り道が、眠って筋肉がゆるんだときに狭くなり、そこを通る空気でのどが震える音です いびき 口呼吸 のど 気道 空気の通り道 舌 軟口蓋 仰向け 横向き 抱き枕 鼻づまり 体重 首まわり 顎 お酒 睡眠時無呼吸 無呼吸 日中の眠気 口テープ いびきをかく こうこきゅう きどう した あおむけ よこむき はなづまり むこきゅう">
+      <a href="ibiki-shikumi.html">
+        <span class="card__img"><img src='img/ibiki-shikumi.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--posture'>姿勢・不調</span><span class='tag tag--paid'>有料</span></span>
+        <h3 class="card__t">いびきはなぜ起きるのか</h3>
+        <p class="card__l">いびきは、骨で支えられていないのどの通り道が、眠って筋肉がゆるんだときに狭くなり、そこを通る空気でのどが震える音です</p>
+        <span class="card__go">続きを読む</span>
+      </a>
+    </li><li class="card card--paid" data-cat="sleep" data-cats="sleep food" data-slug="nebusoku-shokuyoku-shikumi"
+        data-paid="1" data-dup='1' data-q="寝不足の日に食欲が増えるのはなぜか 寝不足の日は、お腹の合図、脳の欲しがり方、ブレーキの効き方が、全部「食べる」側に振れます。しかも減量中は、減るものが脂肪から筋肉にずれやすくなります 寝不足 睡眠不足 食欲 食べすぎ 甘いもの 脂っこいもの 間食 夜食 グレリン レプチン ホルモン 脳 判断 報酬 減量 脂肪 筋肉 早く寝る たんぱく質 買い物 ねぶそく すいみんぶそく しょくよく たべすぎ あまいもの かんしょく やしょく ぐれりん れぷちん ほるもん げんりょう">
+      <a href="nebusoku-shokuyoku-shikumi.html">
+        <span class="card__img"><img src='img/nebusoku-shokuyoku-shikumi.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--food'>食事</span><span class='tag tag--paid'>有料</span></span>
+        <h3 class="card__t">寝不足の日に食欲が増えるのはなぜか</h3>
+        <p class="card__l">寝不足の日は、お腹の合図、脳の欲しがり方、ブレーキの効き方が、全部「食べる」側に振れます。しかも減量中は、減るものが脂肪から筋肉にずれやすくなります</p>
+        <span class="card__go">続きを読む</span>
+      </a>
+    </li><li class="card card--paid" data-cat="sleep" data-cats="sleep training" data-slug="undo-suimin-shikumi"
+        data-paid="1" data-dup='1' data-q="夜の運動は眠りに悪いのか 運動は、眠気のもとを増やし、体温の下がり方を大きくして、眠りを深くします。寝る直前のきつい運動だけが、この流れを逆にします 運動 トレーニング 筋トレ 睡眠 深い眠り 夜 夕方 時間帯 寝る前 体温 深部体温 心拍 交感神経 寝つき プレワークアウト カフェイン 回復 筋肉 うんどう とれーにんぐ きんとれ すいみん ふかいねむり ゆうがた じかんたい たいおん しんぱく ねつき かいふく">
+      <a href="undo-suimin-shikumi.html">
+        <span class="card__img"><img src='img/undo-suimin-shikumi.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--training'>運動</span><span class='tag tag--paid'>有料</span></span>
+        <h3 class="card__t">夜の運動は眠りに悪いのか</h3>
+        <p class="card__l">運動は、眠気のもとを増やし、体温の下がり方を大きくして、眠りを深くします。寝る直前のきつい運動だけが、この流れを逆にします</p>
+        <span class="card__go">続きを読む</span>
+      </a>
+    </li><li class="card card--paid" data-cat="sleep" data-cats="sleep" data-slug="asa-hikari-shikumi"
+        data-paid="1" data-dup='1' data-q="夜の眠気は朝の光で決まる 体内時計は、放っておくと毎日少しずつ遅れていきます。朝の光がそれを毎朝「今が朝」と合わせ直し、夜の眠気の時刻を決めます 朝の光 日光 太陽 体内時計 リセット 24時間 ずれ 夜型 寝つき メラトニン 明るさ ルクス 曇り 窓際 カーテン 起床 朝食 あさのひかり にっこう たいよう たいないどけい りせっと よるがた ねつき めらとにん あかるさ るくす くもり まどぎわ">
+      <a href="asa-hikari-shikumi.html">
+        <span class="card__img"><img src='img/asa-hikari-shikumi.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--paid'>有料</span></span>
+        <h3 class="card__t">夜の眠気は朝の光で決まる</h3>
+        <p class="card__l">体内時計は、放っておくと毎日少しずつ遅れていきます。朝の光がそれを毎朝「今が朝」と合わせ直し、夜の眠気の時刻を決めます</p>
+        <span class="card__go">続きを読む</span>
+      </a>
+    </li><li class="card card--paid" data-cat="sleep" data-cats="sleep food" data-slug="nerumae-shokuji-shikumi"
+        data-paid="1" data-dup='1' data-q="夜遅い食事は太るより眠りに響く 寝る前に食べると、胃と腸が働き続け、体の中心の温度が下がりにくくなります。問題は「太る」より「眠りが浅くなる」ことです 寝る前 夜遅い 食事 夕食 夜食 消化 胃 脂質 揚げ物 ラーメン 胸やけ 逆流 深部体温 眠りが浅い 空腹 分けて食べる 分食 補食 おにぎり 汁物 主菜 ねるまえ よるおそい しょくじ ゆうしょく やしょく しょうか あげもの らーめん むねやけ くうふく ぶんしょく">
+      <a href="nerumae-shokuji-shikumi.html">
+        <span class="card__img"><img src='img/nerumae-shokuji-shikumi.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>
+        <span class='card__tags'><span class='tag tag--sleep'>睡眠</span><span class='tag tag--food'>食事</span><span class='tag tag--paid'>有料</span></span>
+        <h3 class="card__t">夜遅い食事は太るより眠りに響く</h3>
+        <p class="card__l">寝る前に食べると、胃と腸が働き続け、体の中心の温度が下がりにくくなります。問題は「太る」より「眠りが浅くなる」ことです</p>
+        <span class="card__go">続きを読む</span>
+      </a>
+    </li><li class='grp__hd' data-cat='food'><h2>食事</h2><p>外食・体重・食べ方</p></li><li class="card" data-cat="food" data-cats="food" data-slug="teitaiki"
         data-paid="0" data-q="体重が2週間動かないとき 予定通りです 痩せない 減らない 落ちない 止まった 停滞 停滞期 プラトー 変化がない 数字が動かない 焦る やせない へらない おちない とまった ていたいき たいじゅう">
       <a href="teitaiki.html">
         <span class="card__img"><img src='img/teitaiki.jpg' alt='' width='1200' height='600' loading='lazy' decoding='async'></span>

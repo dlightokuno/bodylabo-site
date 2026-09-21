@@ -59,14 +59,20 @@
         var okQ = words.every(function (w) {
           return hay.indexOf(w) !== -1 || txt.indexOf(w) !== -1;
         });
-        var show = okCat && okPaid && okQ;
+        // 新着の列は、分野の列と同じカードの写しです。
+        // 分野を選んだときと検索中は出さず、件数にも数えません。
+        var isDup = card.dataset.dup === "1";
+        var show = okCat && okPaid && okQ && !(isDup && (cat !== "all" || searching));
         card.hidden = !show;
-        if (show) hit++;
+        if (show && !isDup) hit++;
       });
 
-      // 分野で絞ったときと検索中は、分野の見出しを消してカードを詰めます
-      var plain = cat !== "all" || showPaid || searching;
-      heads.forEach(function (h) { h.hidden = plain; });
+      // 分野で絞ったときと検索中は、分野の見出しを消してカードを詰めます。
+      // 「新着」の見出しは、そのときだけでなく、写しを出さないときも消します。
+      var plain = cat !== "all" || searching;
+      heads.forEach(function (h) {
+        h.hidden = h.classList.contains("grp__hd--new") ? plain : (plain || showPaid);
+      });
 
       if (empty) empty.hidden = hit !== 0;
       if (hits) {
