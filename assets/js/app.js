@@ -3,11 +3,14 @@
 
    絞り込みは2つの軸があります。
    ・分野（食事／運動／…）… どれか1つ。記事は複数の分野を持てます
-   ・メンバー限定 … 入／切
+   ・有料記事 … 入／切。切のとき（既定）は無料記事だけを出します
    この2つは組み合わせて使えます。
 
+   最初に開いたときは無料記事だけが並びます。
+   「有料記事」を押すと、有料記事だけに切り替わります。
+
    検索は、タイトル・結論・キーワードに加えて、本文の中も探します。
-   （メンバー限定の記事の本文は入っていません）
+   （有料記事の本文は入っていません）
    ========================================================= */
 (function () {
   "use strict";
@@ -29,7 +32,7 @@
     if (!cards.length) return;
 
     var cat = "all";
-    var paidOnly = false;
+    var showPaid = false;   // 既定は無料記事だけ
 
     // 本文を読み込んで、検索できる形にしておく（1回だけ）
     var body = {};
@@ -49,7 +52,8 @@
       cards.forEach(function (card) {
         var cats = (card.dataset.cats || "").split(" ");
         var okCat = cat === "all" || cats.indexOf(cat) !== -1;
-        var okPaid = !paidOnly || card.dataset.paid === "1";
+        var isPaid = card.dataset.paid === "1";
+        var okPaid = showPaid ? isPaid : !isPaid;
         var hay = norm(card.dataset.q || "");
         var txt = body[card.dataset.slug] || "";
         var okQ = words.every(function (w) {
@@ -61,7 +65,7 @@
       });
 
       // 分野で絞ったときと検索中は、分野の見出しを消してカードを詰めます
-      var plain = cat !== "all" || paidOnly || searching;
+      var plain = cat !== "all" || showPaid || searching;
       heads.forEach(function (h) { h.hidden = plain; });
 
       if (empty) empty.hidden = hit !== 0;
@@ -81,15 +85,18 @@
       });
     });
 
-    // メンバー限定：入／切を切り替える（分野の選択は残る）
+    // 有料記事：入／切を切り替える（分野の選択は残る）
     if (paidChip) {
+      paidChip.setAttribute("aria-pressed", "false");
       paidChip.addEventListener("click", function () {
-        paidOnly = !paidOnly;
-        paidChip.classList.toggle("is-on", paidOnly);
-        paidChip.setAttribute("aria-pressed", paidOnly ? "true" : "false");
+        showPaid = !showPaid;
+        paidChip.classList.toggle("is-on", showPaid);
+        paidChip.setAttribute("aria-pressed", showPaid ? "true" : "false");
         apply();
       });
     }
+
+    apply();   // 最初の表示（無料記事だけ）
 
     if (q) q.addEventListener("input", apply);
   }

@@ -75,6 +75,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .howto{margin-top:44px;padding-top:36px;border-top:1px solid var(--line-soft)}
 .howto__t{font-family:var(--f-serif);font-size:17px;font-weight:600;color:var(--navy)}
 .howto__l{margin-top:12px;font-size:14px;line-height:2.05;color:var(--ink-2)}
+.howto__rec{
+  margin-top:16px;padding-left:14px;border-left:2px solid var(--gold);
+  font-size:14px;line-height:2.05;color:var(--navy);font-weight:600;
+}
 .howto__g{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
 .howto__c{
   padding:20px 22px;background:var(--surface);
@@ -295,7 +299,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .paid{
   margin-top:40px;padding:44px 34px 38px;text-align:center;
   background:
-    linear-gradient(rgba(251,250,247,0) 0%,var(--bg) 42px),
     radial-gradient(120% 90% at 50% 100%,var(--navy-soft) 0%,var(--navy) 100%);
   border-radius:var(--r-lg);color:#fff;position:relative;overflow:hidden;
 }
@@ -310,12 +313,13 @@ ul,ol{margin:0;padding:0;list-style:none}
 .paid__lead{font-size:13px;line-height:2.05;color:rgba(255,255,255,.72);margin-bottom:24px}
 .paid__form{display:flex;gap:10px;max-width:380px;margin-inline:auto}
 .paid__input{
-  flex:1;height:50px;padding:0 16px;font-size:16px;font-family:inherit;color:#fff;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:var(--r);
-  transition:border-color .25s var(--ease),background .25s var(--ease);
+  flex:1;height:50px;padding:0 16px;font-size:16px;font-family:inherit;
+  color:var(--ink);caret-color:var(--ink);
+  background:#fff;border:1px solid rgba(255,255,255,.35);border-radius:var(--r);
+  transition:border-color .25s var(--ease),box-shadow .25s var(--ease);
 }
-.paid__input::placeholder{color:rgba(255,255,255,.4)}
-.paid__input:focus{outline:0;border-color:var(--gold);background:rgba(255,255,255,.12)}
+.paid__input::placeholder{color:var(--ink-3)}
+.paid__input:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,166,103,.35)}
 .paid__btn{
   padding:0 26px;height:50px;border-radius:var(--r);white-space:nowrap;
   background:var(--gold);color:var(--navy-deep);font-weight:700;letter-spacing:.1em;
