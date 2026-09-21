@@ -279,7 +279,11 @@ ul,ol{margin:0;padding:0;list-style:none}
     display:grid;grid-template-columns:142px 1fr;grid-template-rows:auto auto auto;
     column-gap:14px;row-gap:6px;align-content:center;padding:13px 15px 13px 13px;
   }
-  .card__img{grid-column:1;grid-row:1 / 4;width:142px;height:104px;margin:0;border-radius:10px}
+  /* パソコン用の「上にはみ出させる」指定を、ここで打ち消します（後ろに書かれているので強めに指定） */
+  .card a .card__img{
+    grid-column:1;grid-row:1 / 4;align-self:center;
+    width:142px;height:104px;margin:0;border-radius:10px;
+  }
   .card__tags{grid-column:2;grid-row:1}
   .card__t{grid-column:2;grid-row:2;margin:0;font-size:16px;line-height:1.55}
   .card__l{
