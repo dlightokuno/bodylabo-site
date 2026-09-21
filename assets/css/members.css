@@ -71,6 +71,24 @@ ul,ol{margin:0;padding:0;list-style:none}
 }
 .hero__l{margin-top:20px;font-size:14.5px;line-height:2.1;color:var(--ink-2)}
 
+/* このページの使い方 */
+.howto{margin-top:44px;padding-top:36px;border-top:1px solid var(--line-soft)}
+.howto__t{font-family:var(--f-serif);font-size:17px;font-weight:600;color:var(--navy)}
+.howto__l{margin-top:12px;font-size:14px;line-height:2.05;color:var(--ink-2)}
+.howto__g{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.howto__c{
+  padding:20px 22px;background:var(--surface);
+  border:1px solid var(--line-soft);border-radius:var(--r-lg);
+}
+.howto__c--paid{border-color:rgba(22,32,74,.16)}
+.howto__k{
+  font-family:var(--f-en);font-size:10px;letter-spacing:.2em;
+  color:var(--ink-3);margin-bottom:10px;
+}
+.howto__c--paid .howto__k{color:var(--gold)}
+.howto__b{font-size:13.5px;line-height:1.95;color:var(--ink-2)}
+.howto__b b{font-weight:600;color:var(--navy)}
+
 /* フィルタ */
 .filter{
   position:sticky;top:64px;z-index:40;
@@ -228,6 +246,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .pager span{display:block;font-family:var(--f-en);font-size:10px;letter-spacing:.22em;color:var(--ink-3);margin-bottom:8px}
 .pager b{font-family:var(--f-serif);font-size:14.5px;font-weight:600;line-height:1.7;color:var(--navy)}
 .pager__r{text-align:right}
+.pager--paid span{color:var(--gold)}
 
 /* ---------- フッター ---------- */
 .ft{margin-top:auto;padding:52px 24px 46px;background:var(--navy);text-align:center}
@@ -253,6 +272,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .lead__txt{font-size:17.5px}
   .sec--do{padding:28px 20px 26px}
   .step{gap:14px}
+  .howto__g{grid-template-columns:1fr}
   .pager{grid-template-columns:1fr}
   .pager__r{text-align:left}
 }
@@ -322,7 +342,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   background:var(--cream);font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--navy);
 }
 .tablewrap tbody tr+tr td{border-top:1px solid var(--line-soft)}
-.tablewrap td:first-child{white-space:normal}
+.tablewrap td.long{white-space:normal;min-width:7em}
 
 /* 有料だけを見るボタン（分野とは別の軸なので、見た目を分ける） */
 .chip--paid{
@@ -411,3 +431,49 @@ ul,ol{margin:0;padding:0;list-style:none}
   .toc{padding:20px 18px}
   .sub{font-size:15.5px;margin-top:28px}
 }
+
+/* ─────────────────────────────────────────────
+   体験への入口（検索から来た人向け・記事末尾）
+   公開記事にだけ出ます。会員限定の記事には出ません。
+   ───────────────────────────────────────────── */
+.trycta{
+  margin:56px 0 8px;padding:34px 32px;
+  background:var(--cream);border-top:3px solid var(--gold);
+}
+.trycta__lead{
+  font-family:var(--f-jp-serif,inherit);
+  font-size:clamp(19px,2.4vw,23px);line-height:1.6;letter-spacing:.02em;
+  font-weight:700;color:var(--navy);
+}
+.trycta__txt{
+  margin-top:16px;font-size:14.5px;line-height:1.95;color:#4a5170;
+}
+.trycta__btns{
+  margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;
+}
+.trycta__btn{
+  display:inline-block;padding:15px 30px;
+  background:var(--gold-deep);color:#fff;
+  font-size:14.5px;font-weight:700;letter-spacing:.04em;text-decoration:none;
+  transition:background .2s;
+}
+.trycta__btn:hover{background:var(--navy)}
+.trycta__sub{
+  font-size:13.5px;color:var(--navy);text-decoration:underline;
+  text-underline-offset:4px;
+}
+.trycta__sub:hover{color:var(--gold-deep)}
+.trycta__meta{
+  margin-top:22px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:12.5px;line-height:1.85;color:#6b7290;
+}
+.trycta__meta b{color:var(--navy)}
+
+@media (max-width:640px){
+  .trycta{margin-top:44px;padding:26px 20px}
+  .trycta__btn{width:100%;text-align:center}
+}
+/* 行末に1〜2文字だけ落ちるのを防ぐ。見出しは行の長さを揃え、文節で折る（対応ブラウザのみ。非対応でも表示は崩れない） */
+h1,h2,h3,.toc li,.card__t,.card__l,.lead__txt,.tablewrap td.long{text-wrap-style:balance;word-break:auto-phrase}
+p,li{text-wrap-style:pretty}
+@media (max-width:480px){.tablewrap th,.tablewrap td{padding:10px 12px}}
