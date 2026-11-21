@@ -1,0 +1,12 @@
+
+# --- 機密を上げない（2026-11-21 セキュリティ強化）---
+.env
+.env.*
+!.env.example
+.secrets/
+.dev.vars
+*.pem
+*.key
+*.p12
+*token*.txt
+.DS_Store
